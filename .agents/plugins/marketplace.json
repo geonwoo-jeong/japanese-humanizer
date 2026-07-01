@@ -5,7 +5,7 @@
   },
   "plugins": [
     {
-      "name": "japanese-humanizer",
+      "name": "geonwoo-jeong",
       "source": {
         "source": "local",
         "path": "./plugins/japanese-humanizer"

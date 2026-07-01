@@ -1,0 +1,141 @@
+{
+  "name": "japanese-humanizer",
+  "displayName": "日本語ヒューマナイザー",
+  "tagline": "AI文を、自然な日本語へ",
+  "description": "AI文や翻訳調の日本語を、意味を保ったまま自然な日本語へ整える Agent Skill。検出回避、出自判定、著者偽装ではなく、読み手に引っかかる機械的な硬さを減らすための編集支援です。",
+  "repository": "https://github.com/geonwoo-jeong/japanese-humanizer",
+  "skillPath": "skills/japanese-humanizer/SKILL.md",
+  "pluginPath": "plugins/japanese-humanizer",
+  "license": "MIT",
+  "language": "ja",
+  "categories": [
+    "Writing",
+    "Localization",
+    "Editing"
+  ],
+  "tags": [
+    "japanese",
+    "writing",
+    "editing",
+    "humanize",
+    "localization",
+    "translationese"
+  ],
+  "install": {
+    "skillsSh": "npx skills add geonwoo-jeong/japanese-humanizer",
+    "skillsShSpecific": "npx skills add https://github.com/geonwoo-jeong/japanese-humanizer --skill japanese-humanizer",
+    "githubCliCodex": "gh skill install geonwoo-jeong/japanese-humanizer japanese-humanizer --agent codex",
+    "claudeCode": [
+      "/plugin marketplace add geonwoo-jeong/japanese-humanizer",
+      "/plugin install geonwoo-jeong@japanese-humanizer"
+    ],
+    "codex": [
+      "codex plugin marketplace add geonwoo-jeong/japanese-humanizer",
+      "codex plugin add geonwoo-jeong@japanese-humanizer"
+    ]
+  },
+  "safety": {
+    "allowed": [
+      "AI文や翻訳調の日本語を、意味を保って自然な日本語へ整える",
+      "修正理由、修正優先度、要確認箇所を説明する",
+      "高リスク文書では確定書き換えではなく修正文案として出す"
+    ],
+    "notAllowed": [
+      "AI検出器の通過保証や検出回避",
+      "文章の出自判定",
+      "著者偽装、本人性の偽装",
+      "原文にない根拠、経験、数値、具体例の追加"
+    ]
+  },
+  "providers": [
+    {
+      "id": "skills-sh",
+      "name": "skills.sh",
+      "url": "https://www.skills.sh/geonwoo-jeong/japanese-humanizer/japanese-humanizer",
+      "submissionUrl": "https://www.skills.sh/",
+      "status": "published",
+      "submissionType": "public-repository-index"
+    },
+    {
+      "id": "claude-plugin-marketplace",
+      "name": "Claude Code Plugin Marketplace",
+      "url": "https://code.claude.com/docs/en/plugin-marketplaces",
+      "submissionUrl": "https://github.com/geonwoo-jeong/japanese-humanizer",
+      "status": "ready",
+      "submissionType": "repository-hosted-marketplace"
+    },
+    {
+      "id": "lobehub",
+      "name": "LobeHub Skills",
+      "url": "https://lobehub.com/skills",
+      "submissionUrl": "https://lobehub.com/skills",
+      "status": "ready",
+      "submissionType": "public-skill-directory"
+    },
+    {
+      "id": "skillsmp",
+      "name": "SkillsMP",
+      "url": "https://skillsmp.com/",
+      "submissionUrl": "https://skillsmp.com/",
+      "status": "ready",
+      "submissionType": "public-github-index"
+    },
+    {
+      "id": "skillsllm",
+      "name": "SkillsLLM",
+      "url": "https://skillsllm.com/",
+      "submissionUrl": "https://skillsllm.com/submit",
+      "status": "ready",
+      "submissionType": "submit-form"
+    },
+    {
+      "id": "mcpservers-agent-skills",
+      "name": "MCPServers Agent Skills",
+      "url": "https://mcpservers.org/agent-skills",
+      "submissionUrl": "https://mcpservers.org/submit",
+      "status": "ready",
+      "submissionType": "submit-form"
+    },
+    {
+      "id": "mcpmarket",
+      "name": "MCP Market Agent Skills",
+      "url": "https://mcpmarket.com/",
+      "submissionUrl": "https://mcpmarket.com/submit",
+      "sellUrl": "https://mcpmarket.com/sell",
+      "status": "ready",
+      "submissionType": "submit-form"
+    },
+    {
+      "id": "claudeskills-info",
+      "name": "ClaudeSkills.info",
+      "url": "https://claudeskills.info/",
+      "submissionUrl": "https://claudeskills.info/submit",
+      "status": "ready",
+      "submissionType": "submit-form"
+    },
+    {
+      "id": "awesomeskill",
+      "name": "AwesomeSkill.ai",
+      "url": "https://awesomeskill.ai/",
+      "submissionUrl": "https://awesomeskill.ai/",
+      "status": "ready",
+      "submissionType": "directory-submit"
+    },
+    {
+      "id": "shyft",
+      "name": "Shyft Skills",
+      "url": "https://shyft.ai/skills",
+      "submissionUrl": "https://shyft.ai/skills",
+      "status": "contact-required",
+      "submissionType": "contact-or-curation"
+    },
+    {
+      "id": "oneaway",
+      "name": "OneAway Skills",
+      "url": "https://oneaway.io/skills",
+      "submissionUrl": "https://oneaway.io/skills",
+      "status": "curated-contact",
+      "submissionType": "curated-directory"
+    }
+  ]
+}

@@ -56,18 +56,18 @@ function verifyCodex() {
     const available = run("codex", ["plugin", "list", "--available", "--json"], { env });
     if (available.status === 0) {
       const parsed = JSON.parse(available.stdout);
-      const found = parsed.available?.some((plugin) => plugin.pluginId === "japanese-humanizer@japanese-humanizer");
+      const found = parsed.available?.some((plugin) => plugin.pluginId === "geonwoo-jeong@japanese-humanizer");
       if (!found) {
-        failures.push("Codex marketplace に japanese-humanizer@japanese-humanizer が表示されません。");
+        failures.push("Codex marketplace に geonwoo-jeong@japanese-humanizer が表示されません。");
       }
     }
 
-    run("codex", ["plugin", "add", "japanese-humanizer@japanese-humanizer"], { env });
+    run("codex", ["plugin", "add", "geonwoo-jeong@japanese-humanizer"], { env });
 
     const installed = run("codex", ["plugin", "list", "--json"], { env });
     if (installed.status === 0) {
       const parsed = JSON.parse(installed.stdout);
-      const plugin = parsed.installed?.find((entry) => entry.pluginId === "japanese-humanizer@japanese-humanizer" && entry.enabled);
+      const plugin = parsed.installed?.find((entry) => entry.pluginId === "geonwoo-jeong@japanese-humanizer" && entry.enabled);
       if (!plugin) {
         failures.push("Codex plugin install 後に japanese-humanizer が有効化されていません。");
       } else {
@@ -77,7 +77,7 @@ function verifyCodex() {
           "plugins",
           "cache",
           "japanese-humanizer",
-          "japanese-humanizer",
+          "geonwoo-jeong",
           plugin.version,
           "skills",
           "japanese-humanizer",

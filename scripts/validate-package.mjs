@@ -5,19 +5,39 @@ import path from "node:path";
 
 const root = process.cwd();
 
+const marketplaceProviderIds = [
+  "skills-sh",
+  "claude-plugin-marketplace",
+  "lobehub",
+  "skillsmp",
+  "skillsllm",
+  "mcpservers-agent-skills",
+  "mcpmarket",
+  "claudeskills-info",
+  "awesomeskill",
+  "shyft",
+  "oneaway"
+];
+
+const marketplaceSubmissionFiles = marketplaceProviderIds.map(
+  (providerId) => `marketplaces/submissions/${providerId}.md`
+);
+
 const jsonFiles = [
   "package.json",
   "skills.sh.json",
   "skills.json",
+  "marketplaces/profile.json",
   ".claude-plugin/marketplace.json",
   ".agents/plugins/marketplace.json",
   ".cursor-plugin/marketplace.json"
 ];
 
 const requiredFiles = [
-  "AGENTS.md",
   "LICENSE",
   "README.md",
+  "marketplaces/README.md",
+  ...marketplaceSubmissionFiles,
   "skills/japanese-humanizer/SKILL.md",
   "skills/japanese-humanizer/agents/openai.yaml",
   "skills/japanese-humanizer/references/taxonomy.md",
@@ -38,8 +58,12 @@ function readText(relativePath) {
   return fs.readFileSync(path.join(root, relativePath), "utf8");
 }
 
+function fileExists(relativePath) {
+  return fs.existsSync(path.join(root, relativePath));
+}
+
 function assertFile(relativePath) {
-  if (!fs.existsSync(path.join(root, relativePath))) {
+  if (!fileExists(relativePath)) {
     failures.push(`${relativePath} が存在しません。`);
   }
 }
@@ -410,7 +434,7 @@ if (!/^#[0-9A-Fa-f]{6}$/.test(brandColor)) {
 }
 
 const readmeText = readText("README.md");
-if (!readmeText.includes("codex plugin add japanese-humanizer@japanese-humanizer")) {
+if (!readmeText.includes("codex plugin add geonwoo-jeong@japanese-humanizer")) {
   failures.push("README.md には Codex plugin add の手順が必要です。");
 }
 if (!readmeText.includes("--agent codex")) {
@@ -419,6 +443,9 @@ if (!readmeText.includes("--agent codex")) {
 if (!readmeText.includes("AI文を、自然な日本語へ") || !readmeText.includes("機械的な硬さ")) {
   failures.push("README.md は AI文を自然な日本語へ整える目的を説明してください。");
 }
+if (!readmeText.includes("marketplaces/profile.json") || !readmeText.includes("marketplaces/submissions/")) {
+  failures.push("README.md は外部ディレクトリ提出キットの場所を案内してください。");
+}
 
 for (const file of jsonFiles) {
   parseJson(file);
@@ -426,16 +453,16 @@ for (const file of jsonFiles) {
 
 const codexPlugin = parseJson("plugins/japanese-humanizer/.codex-plugin/plugin.json");
 if (codexPlugin) {
-  assertEqual("Codex plugin name", codexPlugin.name, "japanese-humanizer");
+  assertEqual("Codex plugin name", codexPlugin.name, "geonwoo-jeong");
   assertEqual("Codex plugin skills", codexPlugin.skills, "./skills/");
   assertSkillPath("plugins/japanese-humanizer/skills/japanese-humanizer/SKILL.md");
 }
 
 const codexMarketplace = parseJson(".agents/plugins/marketplace.json");
 if (codexMarketplace) {
-  const plugin = codexMarketplace.plugins?.find((entry) => entry.name === "japanese-humanizer");
+  const plugin = codexMarketplace.plugins?.find((entry) => entry.name === "geonwoo-jeong");
   if (!plugin) {
-    failures.push("Codex marketplace に japanese-humanizer の項目がありません。");
+    failures.push("Codex marketplace に geonwoo-jeong の項目がありません。");
   } else {
     assertEqual("Codex marketplace source", plugin.source?.source, "local");
     assertEqual("Codex marketplace path", plugin.source?.path, "./plugins/japanese-humanizer");
@@ -448,7 +475,7 @@ if (codexMarketplace) {
 
 const claudePlugin = parseJson("plugins/japanese-humanizer/.claude-plugin/plugin.json");
 if (claudePlugin) {
-  assertEqual("Claude plugin name", claudePlugin.name, "japanese-humanizer");
+  assertEqual("Claude plugin name", claudePlugin.name, "geonwoo-jeong");
   if (!claudePlugin.skills?.includes("./skills")) {
     failures.push("Claude plugin は ./skills を参照する必要があります。");
   }
@@ -456,9 +483,9 @@ if (claudePlugin) {
 
 const claudeMarketplace = parseJson(".claude-plugin/marketplace.json");
 if (claudeMarketplace) {
-  const plugin = claudeMarketplace.plugins?.find((entry) => entry.name === "japanese-humanizer");
+  const plugin = claudeMarketplace.plugins?.find((entry) => entry.name === "geonwoo-jeong");
   if (!plugin) {
-    failures.push("Claude marketplace に japanese-humanizer の項目がありません。");
+    failures.push("Claude marketplace に geonwoo-jeong の項目がありません。");
   } else {
     assertEqual("Claude marketplace source", plugin.source, "./plugins/japanese-humanizer");
     if (!plugin.skills?.includes("./skills/japanese-humanizer")) {
@@ -470,15 +497,15 @@ if (claudeMarketplace) {
 
 const cursorPlugin = parseJson("plugins/japanese-humanizer/.cursor-plugin/plugin.json");
 if (cursorPlugin) {
-  assertEqual("Cursor plugin name", cursorPlugin.name, "japanese-humanizer");
+  assertEqual("Cursor plugin name", cursorPlugin.name, "geonwoo-jeong");
   assertEqual("Cursor plugin skills", cursorPlugin.skills, "skills");
 }
 
 const cursorMarketplace = parseJson(".cursor-plugin/marketplace.json");
 if (cursorMarketplace) {
-  const plugin = cursorMarketplace.plugins?.find((entry) => entry.name === "japanese-humanizer");
+  const plugin = cursorMarketplace.plugins?.find((entry) => entry.name === "geonwoo-jeong");
   if (!plugin) {
-    failures.push("Cursor marketplace に japanese-humanizer の項目がありません。");
+    failures.push("Cursor marketplace に geonwoo-jeong の項目がありません。");
   } else {
     assertEqual("Cursor marketplace source", plugin.source, "./plugins/japanese-humanizer");
     assertEqual("Cursor marketplace skills", plugin.skills, "skills");
@@ -502,6 +529,62 @@ if (skillsSh) {
   const listed = skillsSh.groupings?.some((group) => group.skills?.includes("japanese-humanizer"));
   if (!listed) {
     failures.push("skills.sh.json の groupings に japanese-humanizer がありません。");
+  }
+}
+
+const marketplaceProfile = parseJson("marketplaces/profile.json");
+if (marketplaceProfile) {
+  assertEqual("marketplaces/profile.json の name", marketplaceProfile.name, "japanese-humanizer");
+  assertEqual("marketplaces/profile.json の repository", marketplaceProfile.repository, "https://github.com/geonwoo-jeong/japanese-humanizer");
+  assertEqual("marketplaces/profile.json の skillPath", marketplaceProfile.skillPath, "skills/japanese-humanizer/SKILL.md");
+  assertEqual("marketplaces/profile.json の language", marketplaceProfile.language, "ja");
+  if (!marketplaceProfile.tagline?.includes("AI文を、自然な日本語へ")) {
+    failures.push("marketplaces/profile.json の tagline は現在の紹介文言と一致させてください。");
+  }
+  if (!marketplaceProfile.description?.includes("検出回避") || !marketplaceProfile.description?.includes("出自判定")) {
+    failures.push("marketplaces/profile.json は検出回避と出自判定を対象外にする説明を含めてください。");
+  }
+  if (!marketplaceProfile.install?.skillsSh?.includes("geonwoo-jeong/japanese-humanizer")) {
+    failures.push("marketplaces/profile.json には skills.sh の実インストールコマンドが必要です。");
+  }
+  if (!marketplaceProfile.install?.codex?.some((command) => command.includes("codex plugin add geonwoo-jeong@japanese-humanizer"))) {
+    failures.push("marketplaces/profile.json には Codex plugin add の実インストールコマンドが必要です。");
+  }
+
+  const providerIds = new Set(marketplaceProfile.providers?.map((provider) => provider.id) ?? []);
+  for (const providerId of marketplaceProviderIds) {
+    if (!providerIds.has(providerId)) {
+      failures.push(`marketplaces/profile.json には ${providerId} の項目が必要です。`);
+    }
+  }
+}
+
+if (fileExists("marketplaces/README.md")) {
+  const marketplaceReadmeText = readText("marketplaces/README.md");
+  for (const providerId of marketplaceProviderIds) {
+    if (!marketplaceReadmeText.includes(providerId)) {
+      failures.push(`marketplaces/README.md は ${providerId} の提出方針を案内してください。`);
+    }
+  }
+  if (!marketplaceReadmeText.includes("実行時のスキル本体ではありません")) {
+    failures.push("marketplaces/README.md は提出キットとスキル実行面を分けて説明してください。");
+  }
+}
+
+for (const providerId of marketplaceProviderIds) {
+  const submissionFile = `marketplaces/submissions/${providerId}.md`;
+  if (!fileExists(submissionFile)) {
+    continue;
+  }
+  const submissionText = readText(submissionFile);
+  if (!submissionText.includes("AI文を、自然な日本語へ")) {
+    failures.push(`${submissionFile} は紹介文言を含めてください。`);
+  }
+  if (!submissionText.includes("https://github.com/geonwoo-jeong/japanese-humanizer")) {
+    failures.push(`${submissionFile} は実リポジトリ URL を含めてください。`);
+  }
+  if (!submissionText.includes("検出回避") || !submissionText.includes("出自判定")) {
+    failures.push(`${submissionFile} は安全上の対象外範囲を明記してください。`);
   }
 }
 

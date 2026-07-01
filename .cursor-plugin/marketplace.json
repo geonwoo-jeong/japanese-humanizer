@@ -9,7 +9,7 @@
   },
   "plugins": [
     {
-      "name": "japanese-humanizer",
+      "name": "geonwoo-jeong",
       "source": "./plugins/japanese-humanizer",
       "skills": "skills",
       "description": "AI文や翻訳調の日本語から、機械的な均質さ、冗長表現、総論的な締めをほどき、意味を保ったまま自然な文体へ整えます。"

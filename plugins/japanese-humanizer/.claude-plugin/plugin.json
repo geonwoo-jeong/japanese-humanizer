@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/anthropics/claude-code/main/schemas/plugin.schema.json",
-  "name": "japanese-humanizer",
+  "name": "geonwoo-jeong",
   "displayName": "日本語ヒューマナイザー",
   "version": "0.1.0",
   "description": "AI文や翻訳調の日本語を、意味を保ったまま自然な日本語へ整えるスキルです。",
