@@ -19,10 +19,6 @@ const marketplaceProviderIds = [
   "oneaway"
 ];
 
-const marketplaceSubmissionFiles = marketplaceProviderIds.map(
-  (providerId) => `marketplaces/submissions/${providerId}.md`
-);
-
 const jsonFiles = [
   "package.json",
   "skills.sh.json",
@@ -36,8 +32,6 @@ const jsonFiles = [
 const requiredFiles = [
   "LICENSE",
   "README.md",
-  "marketplaces/README.md",
-  ...marketplaceSubmissionFiles,
   "skills/japanese-humanizer/SKILL.md",
   "skills/japanese-humanizer/agents/openai.yaml",
   "skills/japanese-humanizer/references/taxonomy.md",
@@ -443,8 +437,8 @@ if (!readmeText.includes("--agent codex")) {
 if (!readmeText.includes("AI文を、自然な日本語へ") || !readmeText.includes("機械的な硬さ")) {
   failures.push("README.md は AI文を自然な日本語へ整える目的を説明してください。");
 }
-if (!readmeText.includes("marketplaces/profile.json") || !readmeText.includes("marketplaces/submissions/")) {
-  failures.push("README.md は外部ディレクトリ提出キットの場所を案内してください。");
+if (!readmeText.includes("marketplaces/profile.json")) {
+  failures.push("README.md は外部ディレクトリ用 JSON の場所を案内してください。");
 }
 
 for (const file of jsonFiles) {
@@ -559,32 +553,9 @@ if (marketplaceProfile) {
   }
 }
 
-if (fileExists("marketplaces/README.md")) {
-  const marketplaceReadmeText = readText("marketplaces/README.md");
-  for (const providerId of marketplaceProviderIds) {
-    if (!marketplaceReadmeText.includes(providerId)) {
-      failures.push(`marketplaces/README.md は ${providerId} の提出方針を案内してください。`);
-    }
-  }
-  if (!marketplaceReadmeText.includes("実行時のスキル本体ではありません")) {
-    failures.push("marketplaces/README.md は提出キットとスキル実行面を分けて説明してください。");
-  }
-}
-
-for (const providerId of marketplaceProviderIds) {
-  const submissionFile = `marketplaces/submissions/${providerId}.md`;
-  if (!fileExists(submissionFile)) {
-    continue;
-  }
-  const submissionText = readText(submissionFile);
-  if (!submissionText.includes("AI文を、自然な日本語へ")) {
-    failures.push(`${submissionFile} は紹介文言を含めてください。`);
-  }
-  if (!submissionText.includes("https://github.com/geonwoo-jeong/japanese-humanizer")) {
-    failures.push(`${submissionFile} は実リポジトリ URL を含めてください。`);
-  }
-  if (!submissionText.includes("検出回避") || !submissionText.includes("出自判定")) {
-    failures.push(`${submissionFile} は安全上の対象外範囲を明記してください。`);
+for (const entry of fs.readdirSync(path.join(root, "marketplaces"), { recursive: true, withFileTypes: true })) {
+  if (entry.isFile() && path.extname(entry.name) !== ".json") {
+    failures.push(`marketplaces/ には JSON 以外のファイルを置かないでください: ${entry.name}`);
   }
 }
 
