@@ -3,7 +3,7 @@
   "name": "japanese-humanizer",
   "displayName": "日本語ヒューマナイザー",
   "version": "0.1.0",
-  "description": "AI風に見える日本語や翻訳調の文章から、AIっぽさを減らして自然な文体へ整えるスキルです。",
+  "description": "AI文や翻訳調の日本語を、意味を保ったまま自然な日本語へ整えるスキルです。",
   "author": {
     "name": "日本語ヒューマナイザー管理者"
   },

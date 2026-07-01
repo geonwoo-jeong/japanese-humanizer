@@ -165,8 +165,8 @@ for (const reference of ["taxonomy.md", "quick-rules.md", "revision-playbook.md"
 if (!skillText.includes("scripts/profile-japanese-text.mjs")) {
   failures.push("SKILL.md は診断スクリプトを案内する必要があります。");
 }
-if (!skillText.includes("AIが作成した日本語") || !skillText.includes("AIっぽさを減ら")) {
-  failures.push("SKILL.md は AIが作成した日本語のAIっぽさを減らす目的を明記してください。");
+if (!skillText.includes("AI文") || !skillText.includes("自然な日本語")) {
+  failures.push("SKILL.md は AI文を自然な日本語へ整える目的を明記してください。");
 }
 if (!skillText.includes("AI検出器回避、出自判定、偽装目的では使わない")) {
   failures.push("SKILL.md の description は検出回避、出自判定、偽装目的を対象外として明記してください。");
@@ -205,7 +205,7 @@ for (const id of ["JA-TL-03", "JA-TL-05", "JA-WR-09", "JA-AI-14", "JA-LLM-20", "
 if (!taxonomyText.includes("文章の出自判定には使わない")) {
   failures.push("taxonomy.md は出自判定に使わない方針を明記してください。");
 }
-if (!taxonomyText.includes("AIが作成した日本語") || !taxonomyText.includes("AIっぽい均質さ")) {
+if (!taxonomyText.includes("AIが作成した日本語") || !taxonomyText.includes("機械的な均質さ")) {
   failures.push("taxonomy.md は AI生成文に見えやすい表層特徴を分類対象として明記してください。");
 }
 if (
@@ -396,8 +396,8 @@ if (shortDescriptionLength < 25 || shortDescriptionLength > 64) {
 if (!defaultPrompt.includes("$japanese-humanizer")) {
   failures.push("openai.yaml の default_prompt には $japanese-humanizer を含めてください。");
 }
-if (!shortDescription.includes("AIっぽさ") || !defaultPrompt.includes("AIっぽさ")) {
-  failures.push("openai.yaml は AIっぽさを減らす用途を説明してください。");
+if (!shortDescription.includes("AI文") || !defaultPrompt.includes("AI文")) {
+  failures.push("openai.yaml は AI文を自然な日本語へ整える用途を説明してください。");
 }
 if (!defaultPrompt.includes("意味を保ったまま") || !defaultPrompt.includes("検出回避")) {
   failures.push("openai.yaml の default_prompt は意味保持と検出回避に使わない方針を含めてください。");
@@ -416,8 +416,8 @@ if (!readmeText.includes("codex plugin add japanese-humanizer@japanese-humanizer
 if (!readmeText.includes("--agent codex")) {
   failures.push("README.md の GitHub CLI 例では --agent codex を明示してください。");
 }
-if (!readmeText.includes("AIが作成した日本語") || !readmeText.includes("AIっぽさ")) {
-  failures.push("README.md は AIが作成した日本語のAIっぽさを減らす目的を説明してください。");
+if (!readmeText.includes("AI文を、自然な日本語へ") || !readmeText.includes("機械的な硬さ")) {
+  failures.push("README.md は AI文を自然な日本語へ整える目的を説明してください。");
 }
 
 for (const file of jsonFiles) {

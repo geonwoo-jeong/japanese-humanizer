@@ -195,7 +195,7 @@ function summarizeEngine(issues) {
     raw_weight: rawScore,
     priority_counts,
     top_ids: topIds,
-    note: "文章の出自判定ではなく、AIっぽさを減らす修正順の目安です。"
+    note: "文章の出自判定ではなく、AI文を自然な日本語へ整える修正順の目安です。"
   };
 }
 

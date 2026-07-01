@@ -21,7 +21,7 @@
   <rect x="52" y="52" width="1496" height="736" rx="34" fill="none" stroke="#d8cfbd" stroke-width="2"/>
 
   <text class="font ink" x="102" y="142" font-size="66" font-weight="800">japanese-humanizer</text>
-  <text class="font green" x="104" y="200" font-size="32" font-weight="700">日本語AIっぽさ低減スキル</text>
+  <text class="font green" x="104" y="200" font-size="32" font-weight="700">AI文を、自然な日本語へ</text>
   <text class="font muted" x="104" y="252" font-size="25">同じ短文を独立エージェントへ渡し、スキル未使用とスキル使用を比較。</text>
   <text class="font muted" x="104" y="288" font-size="25">残った定型感と文面の差だけを表示。</text>
 

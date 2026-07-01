@@ -4,13 +4,13 @@
     "name": "日本語ヒューマナイザー管理者"
   },
   "metadata": {
-    "description": "AI風に見える日本語や翻訳調の文章からAIっぽさを減らす Agent Skill。",
+    "description": "AI文や翻訳調の日本語を自然な日本語へ整える Agent Skill。",
     "version": "0.1.0"
   },
   "plugins": [
     {
       "name": "japanese-humanizer",
-      "description": "AI風に見える日本語文章や翻訳調の文章から、AIっぽい均質さ、冗長表現、総論的な締めを減らし、意味を保ったまま自然な文体へ整えます。",
+      "description": "AI文や翻訳調の日本語から、機械的な均質さ、冗長表現、総論的な締めをほどき、意味を保ったまま自然な文体へ整えます。",
       "source": "./plugins/japanese-humanizer",
       "strict": false,
       "skills": [

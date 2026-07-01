@@ -4,7 +4,7 @@
   "groupings": [
     {
       "title": "日本語ライティング",
-      "description": "AI風に見える日本語や翻訳調の文章からAIっぽさを減らし、自然な日本語へ整えるためのスキル。",
+      "description": "AI文や翻訳調の日本語を、意味を保ったまま自然な日本語へ整えるためのスキル。",
       "skills": [
         "japanese-humanizer"
       ]
