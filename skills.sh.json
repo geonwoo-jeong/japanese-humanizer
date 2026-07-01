@@ -1,0 +1,13 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "日本語ライティング",
+      "description": "日本語の文章を自然で読みやすい文体へ整えるためのスキル。",
+      "skills": [
+        "japanese-humanizer"
+      ]
+    }
+  ]
+}

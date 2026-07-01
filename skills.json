@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "japanese-humanizer",
+  "version": "0.1.0",
+  "description": "日本語の文章を自然で人間らしい文体へ整える Agent Skill。",
+  "skills": [
+    {
+      "id": "japanese-humanizer",
+      "path": "skills/japanese-humanizer/SKILL.md"
+    }
+  ]
+}

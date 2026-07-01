@@ -1,0 +1,20 @@
+{
+  "name": "japanese-humanizer",
+  "interface": {
+    "displayName": "日本語ヒューマナイザー"
+  },
+  "plugins": [
+    {
+      "name": "japanese-humanizer",
+      "source": {
+        "source": "local",
+        "path": "./plugins/japanese-humanizer"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Writing"
+    }
+  ]
+}

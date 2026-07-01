@@ -1,0 +1,21 @@
+{
+  "name": "japanese-humanizer",
+  "owner": {
+    "name": "日本語ヒューマナイザー管理者"
+  },
+  "metadata": {
+    "description": "日本語文章の自然化に特化した Agent Skill。",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "japanese-humanizer",
+      "description": "日本語の文章を、意味を保ったまま自然で人間らしい文体へ整えます。",
+      "source": "./plugins/japanese-humanizer",
+      "strict": false,
+      "skills": [
+        "./skills/japanese-humanizer"
+      ]
+    }
+  ]
+}

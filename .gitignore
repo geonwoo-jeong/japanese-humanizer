@@ -1,0 +1,12 @@
+# 依存関係
+node_modules/
+
+# ログ
+*.log
+
+# OS 固有ファイル
+.DS_Store
+
+# 一時ファイル
+tmp/
+temp/

@@ -1,0 +1,40 @@
+name: 検証
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  validate:
+    name: パッケージ検証
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリを取得
+        uses: actions/checkout@v4
+
+      - name: Node.js を準備
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: 配布検証用CLIを準備
+        run: |
+          npm install -g @openai/codex @anthropic-ai/claude-code
+          GH_VERSION=$(node -e "const release = await fetch('https://api.github.com/repos/cli/cli/releases/latest').then((response) => response.json()); process.stdout.write(release.tag_name.replace(/^v/, ''));")
+          curl -fsSL "https://github.com/cli/cli/releases/download/v${GH_VERSION}/gh_${GH_VERSION}_linux_amd64.tar.gz" -o /tmp/gh.tar.gz
+          tar -xzf /tmp/gh.tar.gz -C /tmp
+          sudo install "/tmp/gh_${GH_VERSION}_linux_amd64/bin/gh" /usr/local/bin/gh
+          codex --version
+          claude --version
+          gh skill --help >/dev/null
+
+      - name: スキル配布構成を検証
+        run: npm test
+
+      - name: 利用可能なCLIで配布経路を検証
+        env:
+          SMOKE_REQUIRE_TOOLS: "1"
+        run: npm run smoke

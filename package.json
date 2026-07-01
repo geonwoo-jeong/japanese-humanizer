@@ -1,0 +1,11 @@
+{
+  "name": "japanese-humanizer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "日本語の文章を自然で人間らしい文体へ整える Agent Skill 配布リポジトリ。",
+  "scripts": {
+    "test": "node scripts/validate-package.mjs",
+    "validate": "node scripts/validate-package.mjs",
+    "smoke": "node scripts/smoke-distribution.mjs"
+  }
+}

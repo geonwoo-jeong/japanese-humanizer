@@ -1,0 +1,35 @@
+{
+  "name": "japanese-humanizer",
+  "version": "0.1.0",
+  "description": "日本語の文章を、意味を保ったまま自然で人間らしい文体へ整えるスキルです。",
+  "author": {
+    "name": "日本語ヒューマナイザー管理者"
+  },
+  "license": "MIT",
+  "keywords": [
+    "japanese",
+    "writing",
+    "editing",
+    "humanize",
+    "localization"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "日本語ヒューマナイザー",
+    "shortDescription": "日本語文を自然で人間らしい文体へ整えます。",
+    "longDescription": "日本語ヒューマナイザーは、原文の意味、敬体・常体、語り手、固有名詞を保ちながら、AIらしい硬さや直訳感を減らして自然な日本語へ整えるためのスキルです。",
+    "developerName": "日本語ヒューマナイザー管理者",
+    "category": "Writing",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "この日本語を自然にしてください。",
+      "AIっぽい表現を人間らしく整えてください。",
+      "敬体のまま読みやすい日本語にしてください。"
+    ],
+    "brandColor": "#C2410C"
+  }
+}
