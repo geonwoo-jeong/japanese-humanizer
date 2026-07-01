@@ -1,8 +1,5 @@
 interface:
   display_name: "日本語ヒューマナイザー"
-  short_description: "日本語文を自然な文体へ整えます。"
+  short_description: "AI風・翻訳調の日本語からAIっぽさを減らし、自然に整えます。"
   brand_color: "#C2410C"
-  default_prompt: "$japanese-humanizer を使って、この日本語を自然な文体に整えてください。"
-
-policy:
-  allow_implicit_invocation: true
+  default_prompt: "$japanese-humanizer を使って、AIっぽさや翻訳調が気になるこの日本語を、意味を保ったまま、出自判定や検出回避には使わず自然な文体に整えてください。"

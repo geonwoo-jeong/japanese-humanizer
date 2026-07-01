@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="840" viewBox="0 0 1600 840" role="img" aria-labelledby="title desc">
+  <title id="title">japanese-humanizer — スキル未使用とスキル使用の比較</title>
+  <desc id="desc">同じ短文を独立エージェントへ渡し、スキル未使用とスキル使用後の文面を比較した画像。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f4efe4; }
+      .ink { fill: #17231c; }
+      .muted { fill: #6f6a5e; }
+      .green { fill: #2e6649; }
+      .red { fill: #b45440; }
+      .line { stroke: #d8cfbd; stroke-width: 2; }
+      .card { fill: #fffaf0; stroke: #d8cfbd; stroke-width: 2; }
+      .soft { fill: #e7ddc9; }
+      .soft-green { fill: #dce7d8; }
+      .font { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif; }
+      .mono { font-family: "SFMono-Regular", Menlo, Consolas, monospace; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1600" height="840"/>
+  <rect x="52" y="52" width="1496" height="736" rx="34" fill="none" stroke="#d8cfbd" stroke-width="2"/>
+
+  <text class="font ink" x="102" y="142" font-size="66" font-weight="800">japanese-humanizer</text>
+  <text class="font green" x="104" y="200" font-size="32" font-weight="700">日本語AIっぽさ低減スキル</text>
+  <text class="font muted" x="104" y="252" font-size="25">同じ短文を独立エージェントへ渡し、スキル未使用とスキル使用を比較。</text>
+  <text class="font muted" x="104" y="288" font-size="25">残った定型感と文面の差だけを表示。</text>
+
+  <g transform="translate(1052 112)">
+    <rect x="0" y="0" width="400" height="148" rx="26" fill="#fffaf0" stroke="#d8cfbd" stroke-width="2"/>
+    <text class="font green" x="34" y="56" font-size="27" font-weight="850">独立エージェント確認</text>
+    <text class="font muted" x="34" y="96" font-size="22">同一入力</text>
+    <text class="font muted" x="34" y="126" font-size="22">スキル有無のみ変更</text>
+  </g>
+
+  <g transform="translate(104 338)">
+    <rect class="soft" x="0" y="0" width="170" height="48" rx="24"/>
+    <text class="font ink" x="85" y="32" font-size="22" font-weight="850" text-anchor="middle">スキル未使用</text>
+
+    <rect class="soft-green" x="780" y="0" width="286" height="48" rx="24"/>
+    <text class="font green" x="923" y="32" font-size="22" font-weight="850" text-anchor="middle">スキル使用</text>
+  </g>
+
+  <g transform="translate(104 416)">
+    <rect class="card" x="0" y="0" width="620" height="104" rx="16"/>
+    <text class="font ink" x="30" y="42" font-size="24" font-weight="650">AI技術を活用することで、</text>
+    <text class="font ink" x="30" y="76" font-size="24" font-weight="650">業務効率を高められます。</text>
+
+    <text class="font red" x="724" y="64" font-size="38" font-weight="800" text-anchor="middle">→</text>
+
+    <rect class="card" x="780" y="0" width="620" height="104" rx="16"/>
+    <text class="font green" x="810" y="42" font-size="24" font-weight="750">AI技術を活用すれば、</text>
+    <text class="font green" x="810" y="76" font-size="24" font-weight="750">業務効率を高められます。</text>
+  </g>
+
+  <g transform="translate(104 548)">
+    <rect class="card" x="0" y="0" width="620" height="104" rx="16"/>
+    <text class="font ink" x="30" y="42" font-size="24" font-weight="650">本施策で重要なのは、</text>
+    <text class="font ink" x="30" y="76" font-size="24" font-weight="650">継続的に改善していくことです。</text>
+
+    <text class="font red" x="724" y="64" font-size="38" font-weight="800" text-anchor="middle">→</text>
+
+    <rect class="card" x="780" y="0" width="620" height="104" rx="16"/>
+    <text class="font green" x="810" y="42" font-size="24" font-weight="750">本施策では、</text>
+    <text class="font green" x="810" y="76" font-size="24" font-weight="750">継続的に改善していくことが重要です。</text>
+  </g>
+
+  <g transform="translate(104 680)">
+    <rect class="card" x="0" y="0" width="620" height="104" rx="16"/>
+    <text class="font ink" x="30" y="42" font-size="24" font-weight="650">このように、今後も注目されると</text>
+    <text class="font ink" x="30" y="76" font-size="24" font-weight="650">期待されます。</text>
+
+    <text class="font red" x="724" y="64" font-size="38" font-weight="800" text-anchor="middle">→</text>
+
+    <rect class="card" x="780" y="0" width="620" height="104" rx="16"/>
+    <text class="font green" x="810" y="60" font-size="26" font-weight="760">今後も注目を集めそうです。</text>
+  </g>
+
+  <text class="mono muted" x="1498" y="812" font-size="22" text-anchor="end">github.com/geonwoo-jeong/japanese-humanizer</text>
+</svg>

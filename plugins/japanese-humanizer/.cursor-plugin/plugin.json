@@ -1,7 +1,7 @@
 {
   "name": "japanese-humanizer",
   "version": "0.1.0",
-  "description": "日本語の文章を、意味を保ったまま自然で人間らしい文体へ整えるスキルです。",
+  "description": "AI風に見える日本語や翻訳調の文章から、AIっぽさを減らして自然な文体へ整えるスキルです。",
   "author": {
     "name": "日本語ヒューマナイザー管理者"
   },

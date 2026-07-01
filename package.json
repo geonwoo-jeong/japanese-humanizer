@@ -2,10 +2,14 @@
   "name": "japanese-humanizer",
   "version": "0.1.0",
   "private": true,
-  "description": "日本語の文章を自然で人間らしい文体へ整える Agent Skill 配布リポジトリ。",
+  "description": "AI風に見える日本語や翻訳調の文章からAIっぽさを減らし、意味を保ったまま自然な日本語へ整える Agent Skill 配布リポジトリ。",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/geonwoo-jeong/japanese-humanizer.git"
+  },
   "scripts": {
-    "test": "node scripts/validate-package.mjs",
-    "validate": "node scripts/validate-package.mjs",
+    "test": "node scripts/validate-package.mjs && node plugins/japanese-humanizer/skills/japanese-humanizer/scripts/profile-japanese-text.mjs --self-test",
+    "validate": "node scripts/validate-package.mjs && node plugins/japanese-humanizer/skills/japanese-humanizer/scripts/profile-japanese-text.mjs --self-test",
     "smoke": "node scripts/smoke-distribution.mjs"
   }
 }
